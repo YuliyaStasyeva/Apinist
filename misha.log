@@ -1,0 +1,5 @@
+2017.10.02 09:05:54 Started with parameters: SOURCE_DIR=[D:\Input], DESTINATION_DIR=[D:\Output], LOG_FILE_NAME=[misha.log]
+2017.10.02 09:07:29 Suitable file [маленький_koir_8.txt] detected. Converting...
+2017.10.02 09:07:29 + Converted OK. Source encoding was KOI8-R.
+2017.10.02 09:07:29 + Detection time was 0.0005 sec, conversion time was 0 sec, performance was 1.57738 MB/sec.
+2017.10.02 09:07:29 + Source file deleted OK.
