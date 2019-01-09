@@ -1,5 +1,5 @@
-var cityInput=element(by.css('#city__front-input'));
-var selectInput=element(by.css('ul>li:nth-child(1).b-autocomplete-item'));
+let cityInput=element(by.css('#city__front-input'));
+let selectInput=element(by.css('ul>li:nth-child(1).b-autocomplete-item'));
 class YandexLocation {
 	async clearInput() {
 		  await cityInput.clear();
@@ -8,9 +8,15 @@ class YandexLocation {
           await cityInput.sendKeys(city);
 	};
     async selectCity() {
-          var EC=protractor.ExpectedConditions;
-          await browser.wait(EC.visibilityOf(selectInput, 10000));
-		  await selectInput.click();
+          await selectInput.click();
+    };
+    async waitForAutocopleteParis() {
+          let EC=protractor.ExpectedConditions;
+          await browser.wait(EC.textToBePresentInElement(selectInput, "Париж"), 5000);
+	};
+    async waitForAutocopleteLondon() {
+          let EC=protractor.ExpectedConditions;
+          await browser.wait(EC.textToBePresentInElement(selectInput, "Лондон"), 5000);
     };
 };
 module.exports=new YandexLocation();
