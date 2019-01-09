@@ -1,6 +1,6 @@
-var arrowLink=element(by.css('div.geolink__button_size_s'));
-var elseLink=element(by.css('a.home-link.dropdown2__switcher'));
-var getCityArray=element.all(by.css('a.home-tabs__more-link'));
+let arrowLink=element(by.css('div.geolink__button_size_s'));
+let elseLink=element(by.css('a.home-link.dropdown2__switcher'));
+let getCityArray=element.all(by.css('a.home-tabs__more-link'));
 class YandexMainPage {
 	async get() {
 		  await browser.waitForAngularEnabled(false);
@@ -10,17 +10,20 @@ class YandexMainPage {
 		  await arrowLink.click();
 	};
 	async elseClick() {
-          var EC=protractor.ExpectedConditions;
-          await browser.wait(EC.presenceOf(elseLink), 10000);
           await elseLink.click();
 	};
 	async getMatchLinkLondon() {
-		  var londonList=await getCityArray.getText();
+		  let londonList=await getCityArray.getText();
 		  return londonList;
-        };
+	};
     async getMatchLinkParis() {
-          var parisList=await getCityArray.getText();
+          let parisList=await getCityArray.getText();
           return parisList;
-};
+    };
+    async waitForElse() {
+    	  let EC=protractor.ExpectedConditions;
+          await browser.wait(EC.visibilityOf(elseLink), 5000);
+    }
 };
 module.exports= new YandexMainPage();
+
