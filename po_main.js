@@ -1,29 +1,29 @@
-let arrowLink=element(by.css('div.geolink__button_size_s'));
-let elseLink=element(by.css('a.home-link.dropdown2__switcher'));
-let getCityArray=element.all(by.css('a.home-tabs__more-link'));
+let variables={
+	arrowLink:element(by.css('div.geolink__button_size_s')),
+    elseLink:element(by.css('a.home-link.dropdown2__switcher')),
+    getCityArray:element.all(by.css('a.home-tabs__more-link'))
+};
+let waitLink=require ('./waiters');
 class YandexMainPage {
 	async get() {
 		  await browser.waitForAngularEnabled(false);
 		  await browser.get('https://yandex.by/');
 	};
 	async getPageLocation() {
-		  await arrowLink.click();
+		  await variables.arrowLink.click();
 	};
 	async elseClick() {
-          await elseLink.click();
+		await  waitLink.waitForElse(variables.elseLink);
+          await variables.elseLink.click();
 	};
 	async getMatchLinkLondon() {
-		  let londonList=await getCityArray.getText();
+		  let londonList=await variables.getCityArray.getText();
 		  return londonList;
 	};
     async getMatchLinkParis() {
-          let parisList=await getCityArray.getText();
+          let parisList=await variables.getCityArray.getText();
           return parisList;
     };
-    async waitForElse() {
-    	  let EC=protractor.ExpectedConditions;
-          await browser.wait(EC.visibilityOf(elseLink), 5000);
-    }
 };
 module.exports= new YandexMainPage();
 
