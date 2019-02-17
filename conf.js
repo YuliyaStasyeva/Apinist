@@ -2,7 +2,7 @@ exports.config = {
   directConnect: true,
   SELENIUM_PROMISE_MANAGER: false, 
   framework: 'jasmine',
-  specs: ['test_script.js'],
+  specs: ['test.js'],
   capabilities:   {browserName: 'chrome'},
-  jasmineNodeOpts:   {defaultTimeoutInterval: 300000},
+  jasmineNodeOpts:   {defaultTimeoutInterval: 100000},
   }
