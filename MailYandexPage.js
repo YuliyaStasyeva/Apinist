@@ -8,7 +8,6 @@ class MailYandexPage {
     async verifyUserName() {
         await Waiters.waitForElementIsVisible(this.userName) ;
         let login =await this.userName.getText();
-        console.log(login);
         return await login;
     };
     async selectLogout() {

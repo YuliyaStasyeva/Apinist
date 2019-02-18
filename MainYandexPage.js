@@ -27,18 +27,17 @@ class MainYandexPage {
         await Waiters.waitForElementIsVisible(this.logIn);
         await this.logIn.click();
     };
-    async verifyLogout() {
+    async goToMailLinkAndVerifyLogout() {
         await Waiters.waitForElementIsVisible(this.mail);
         const logout= await this.mail.getText();
-        await console.log(logout);
         return await logout;
     };
-    async getLinks(link,part) {
+    async openLinkAndVerifyUrl(link,part) {
         await Waiters.waitForElementIsVisible(link);
         await link.click();
         await Waiters.waitForPageLoad(part);
     };
-    async switchToSecondTabAndGetLinkVideo() {
+    async openNewTabByLinkAndVerifyUrl() {
         await Waiters.waitForElementIsVisible(this.videoLink);
         await this.videoLink.click();
         await browser.getAllWindowHandles().then(function (handles) {
