@@ -13,7 +13,7 @@ class ChangeLanguagePage {
         await Waiters.waitForElementIsVisible(this.saveButton);
         await this.saveButton.click();
     };
-    async verifyEnglish() {
+    async returnEnglish() {
         let buttonText= await this.languageButton.getText();
         return await buttonText;
     };

@@ -5,7 +5,7 @@ class MailYandexPage {
         this.subMenuButton=element(by.css('#recipient-1'));
         this.dropDownOption=element(by.css('#nb-4 > div > div > div:nth-child(7) > a'))
     };
-    async verifyUserName() {
+    async returnUserName() {
         await Waiters.waitForElementIsVisible(this.userName) ;
         let login =await this.userName.getText();
         return await login;
